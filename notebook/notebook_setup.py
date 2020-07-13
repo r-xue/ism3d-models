@@ -57,15 +57,20 @@ from ism3d.utils.io import to_hdf5
 from ism3d.utils.io import from_hdf5
 from ism3d.visualize.nb import make_gif, show_gif
 from ism3d.utils.misc import check_config
-from ism3d.visualize.plts import im_grid
 
-from ism3d.modeling.interface import read_inp, write_inp, inp_to_mod
+from ism3d.visualize.plts import im_grid
+from ism3d.visualize.plts import plt_rcProf
+
+from ism3d.interface import read_inp, write_inp, inp_to_mod
 from ism3d.utils.meta import create_header
 
 from ism3d.arts.sparse import clouds_from_disk3d
 from ism3d.simxy.render import xy_render
 from ism3d.simuv.render import uv_render
 from ism3d.modeling.model import model_realize
+from ism3d.simxy.render import render_apmodel2d as xy_render_apmodel2d
+from ism3d.simxy.render import render_spmodel3d as xy_render_spmodel3d
+from ism3d.simxy.render import render_spmodel3d_xyz as xy_render_spmodel3d_xyz
 
 ism3d.logger_config(logfile='ism3d.log',loglevel='INFO',logfilelevel='INFO')
 # ism3d.logger_config(logfile='ism3d.log',loglevel='DEBUG',logfilelevel='DEBUG')
@@ -87,10 +92,12 @@ from casatasks import tclean
 
 from ism3d.xyhelper.sky import linear_offset_coords
 from IPython.display import display, clear_output
+import ipyvolume as ipv
 
 
 ism3d.check_config()
 ism3d.logger_status()
+
 
 """
 if  'hypersion' or 'mini' in socket.gethostname() :
