@@ -64,13 +64,23 @@ from ism3d.visualize.plts import plt_rcProf
 from ism3d.interface import read_inp, write_inp, inp_to_mod
 from ism3d.utils.meta import create_header
 
-from ism3d.arts.sparse import clouds_from_disk3d
+from ism3d.arts.sparse import clouds_from_disk3d,clouds_morph,clouds_discretize_2d
+from ism3d.arts.apmodel2d import eval_apmodel2d
+from ism3d.arts.sparse import clouds_from_obj
+from ism3d.maths.geometry import points_in_triangle
+
+
+from ism3d.arts.lens import sie_rt
+from ism3d.utils.misc import prepdir
+from ism3d.arts.apmodel2d import eval_apmodel2d
+
 from ism3d.simxy.render import xy_render
 from ism3d.simuv.render import uv_render
 from ism3d.modeling.model import model_realize
 from ism3d.simxy.render import render_apmodel2d as xy_render_apmodel2d
 from ism3d.simxy.render import render_spmodel3d as xy_render_spmodel3d
 from ism3d.simxy.render import render_spmodel3d_xyz as xy_render_spmodel3d_xyz
+from ism3d.simxy.render import render_lens as xy_render_lens
 
 ism3d.logger_config(logfile='ism3d.log',loglevel='INFO',logfilelevel='INFO')
 # ism3d.logger_config(logfile='ism3d.log',loglevel='DEBUG',logfilelevel='DEBUG')
